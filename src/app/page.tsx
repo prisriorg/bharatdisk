@@ -1,113 +1,90 @@
-import Image from "next/image";
+
+
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <main className="">
+      <header className="bg-white shadow-md">
+        <nav className="container mx-auto flex justify-between items-center p-4">
+          <a href="/" className="text-2xl font-bold text-blue-600">BharatDisk</a>
+          <ul className="flex space-x-6">
+            <li><a href="#features" className="text-blue-600 hover:underline">Features</a></li>
+            <li><a href="#how-it-works" className="text-blue-600 hover:underline">How It Works</a></li>
+            <li><a href="#contact" className="text-blue-600 hover:underline">Contact</a></li>
+          </ul>
+          <a href="/login" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Login</a>
+        </nav>
+        <section className="hero bg-blue-600 text-white text-center py-16">
+          <div className="container mx-auto">
+            <h1 className="text-4xl font-bold mb-4">Welcome to BharatDisk</h1>
+            <p className="text-lg mb-8">Your premier file storage platform. Store, view, and earn rewards while sharing your files.</p>
+            <a href="/signup" className="bg-green-600 text-white px-6 py-3 rounded hover:bg-green-700 text-lg">Get Started</a>
+          </div>
+        </section>
+      </header>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      <main>
+        <section id="features" className="py-16">
+          <div className="container mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-8">Features</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="bg-white p-6 rounded-lg shadow-lg">
+                <h3 className="text-xl font-semibold mb-4">Secure Storage</h3>
+                <p>Store your files safely with top-notch security.</p>
+              </div>
+              <div className="bg-white p-6 rounded-lg shadow-lg">
+                <h3 className="text-xl font-semibold mb-4">Easy Sharing</h3>
+                <p>Share files effortlessly with just a few clicks.</p>
+              </div>
+              <div className="bg-white p-6 rounded-lg shadow-lg">
+                <h3 className="text-xl font-semibold mb-4">Earn Rewards</h3>
+                <p>Earn rewards for every view and share of your files.</p>
+              </div>
+            </div>
+          </div>
+        </section>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+        <section id="how-it-works" className="bg-gray-200 py-16">
+          <div className="container mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-8">How It Works</h2>
+            <ol className="list-decimal list-inside space-y-4 text-left mx-auto max-w-3xl">
+              <li>Upload your files to BharatDisk.</li>
+              <li>Share your files with others.</li>
+              <li>Earn rewards based on the views and shares of your files.</li>
+              <li>Manage your files and rewards easily from your dashboard.</li>
+            </ol>
+          </div>
+        </section>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
+        <section id="contact" className="py-16">
+          <div className="container mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-8">Contact Us</h2>
+            <p className="mb-8">If you have any questions or need assistance, feel free to reach out to us.</p>
+            <form action="/contact" method="post" className="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg">
+              <label htmlFor="name" className="block text-left text-lg font-semibold mb-2">Name:</label>
+              <input type="text" id="name" name="name" required className="w-full p-3 border border-gray-300 rounded mb-4"/>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
+                <label htmlFor="email" className="block text-left text-lg font-semibold mb-2">Email:</label>
+                <input type="email" id="email" name="email" required className="w-full p-3 border border-gray-300 rounded mb-4"/>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+                  <label htmlFor="message" className="block text-left text-lg font-semibold mb-2">Message:</label>
+                  <textarea id="message" name="message" required className="w-full p-3 border border-gray-300 rounded mb-4"></textarea>
+
+                  <button type="submit" className="bg-green-600 text-white px-6 py-3 rounded hover:bg-green-700">Send Message</button>
+                </form>
+              </div>
+            </section>
+          </main>
+
+          <footer className="bg-gray-800 text-white py-4">
+            <div className="container mx-auto text-center">
+              <p>&copy; 2024 BharatDisk. All rights reserved.</p>
+              <ul className="flex justify-center space-x-6 mt-4">
+                <li><a href="/privacy" className="hover:underline">Privacy Policy</a></li>
+                <li><a href="/terms" className="hover:underline">Terms of Service</a></li>
+              </ul>
+            </div>
+          </footer>
+      </main>
+      );
 }

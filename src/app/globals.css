@@ -15,15 +15,28 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+/* globals.css */
+html {
+  scroll-behavior: smooth;
+}
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+}
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
+  /* background: linear-gradient(
       to bottom,
       transparent,
       rgb(var(--background-end-rgb))
     )
-    rgb(var(--background-start-rgb));
+    rgb(var(--background-start-rgb)); */
 }
 
 @layer utilities {
