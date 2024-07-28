@@ -1,8 +1,8 @@
 
 import { NextResponse } from "next/server";
 export const runtime = 'edge'; 
-import { db } from '../../config/db/config';
-import { InsertUser, usersTable} from '../../config/db/schema';
+import { InsertUser, usersTable} from '@/config/db/schema';
+import { db } from "@/config/db/config";
 export async function GET(){
 
     const result = await db.select().from(usersTable).all();
