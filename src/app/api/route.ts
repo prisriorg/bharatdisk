@@ -1,8 +1,12 @@
 
+"use server"
+
 import { NextResponse } from "next/server";
-export const runtime = 'edge'; 
+
 import { InsertUser, usersTable} from '@/config/db/schema';
 import { db } from "@/config/db/config";
+
+export const runtime = 'edge'; 
 export async function GET(){
 
     const result = await db.select().from(usersTable).all();
