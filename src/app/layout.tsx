@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     siteName: config.name,
     images: [
       {
-        url: config.url,
+        url: config.url
       }
     ]
   },
@@ -39,8 +39,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body 
+    <html lang="en" suppressHydrationWarning>
+      <body
       
       // className={inter.className}
       

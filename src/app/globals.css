@@ -20,14 +20,159 @@ html {
   scroll-behavior: smooth;
 }
 
-.fade-in {
-  opacity: 0;
-  transition: opacity 0.6s ease-in-out;
+
+.animate-fadeIn{
+  animation: fadeIn 2s linear;
+  animation-timeline: view();
+  animation-range : entry 0;
+}
+.animate-rotate{
+  animation: rotate 2s linear;
+  animation-timeline: view();
+  animation-range : entry 0;
+}
+.animate-slideLeft{
+  animation: slideUp 3s linear;
+  animation-timeline: view();
+  animation-range : entry 0;
 }
 
-.fade-in.visible {
-  opacity: 1;
+
+
+.animate-homeUp{
+  animation: zoomOut 3s linear;
+  animation-timeline: scroll();
+  animation-range : 0 100vh;
 }
+.animate-slideBottom{
+  animation: pulse 3s ;
+  animation-timeline: view();
+  animation-range : entry 0;
+}
+.animate-slideRight{
+  animation: slideDown 8s ;
+  animation-timeline: view();
+  animation-range : entry 0;
+}
+
+
+
+
+
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); }
+  50% { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+@keyframes slideOutRight {
+  from { transform: translateX(0); }
+  50% { transform: translateX(50%); }
+  to { transform: translateX(100%); }
+}
+@keyframes rotate {
+  from {
+      transform: rotate(0);
+  }
+
+  to {
+      transform: rotate(360deg);
+  }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-30px); }
+  60% { transform: translateY(-15px); }
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+@keyframes zoomIn {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+@keyframes zoomOut {
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(0.5); opacity: 0; }
+}
+@keyframes flip {
+  from { transform: rotateY(0); }
+  to { transform: rotateY(360deg); }
+}
+@keyframes swing {
+  20% { transform: rotate3d(0, 0, 1, 15deg); }
+  40% { transform: rotate3d(0, 0, 1, -10deg); }
+  60% { transform: rotate3d(0, 0, 1, 5deg); }
+  80% { transform: rotate3d(0, 0, 1, -5deg); }
+  100% { transform: rotate3d(0, 0, 1, 0deg); }
+}
+@keyframes hinge {
+  0% { transform: rotate(0deg); }
+  20% { transform: rotate(80deg); }
+  50% { transform: rotate(60deg); opacity: 1; }
+  100% { transform: translateX(1000px); opacity: 0; }
+}
+
+@keyframes rollIn {
+  from {
+    transform: translateX(-100%) rotate(-120deg);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  25% { transform: translateY(75%); }
+  50% { transform: translateY(50%); }
+  75% { transform: translateY(25%); }
+  to { transform: translateY(0); }
+}
+@keyframes slideDown {
+  from { transform: translateY(-100%); }
+  25% { transform: translateY(-75%); }
+  50% { transform: translateY(-50%); }
+  75% { transform: translateY(-25%); }
+  to { transform: translateY(0); }
+}
+
+@keyframes rollOut {
+  from {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%) rotate(120deg);
+    opacity: 0;
+  }
+}
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70% { transform: translateX(-10px); }
+  20%, 40%, 60%, 80% { transform: translateX(10px); }
+}
+
+
+
+
+
+
+
 
 body {
   color: rgb(var(--foreground-rgb));
