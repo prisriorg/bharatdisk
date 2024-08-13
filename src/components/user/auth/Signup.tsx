@@ -1,18 +1,13 @@
 "use client"
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, FormEvent } from 'react';
 
 export default function SignUp() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const router = useRouter()
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [paramsCode, setParamsCode] = useState('');
-  const [referCode, setReferCode] = useState('');
-
-
   // Function to extract and validate refer code from URL
   const extractReferCode = () => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -27,20 +22,39 @@ export default function SignUp() {
 
   
 
-  const handleSubmit = async (e: { preventDefault: () => void; }) => {
+  const handleSubmit = async (e:FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     setError('');
-
+    const formData = new FormData(e.currentTarget)
+    const name = formData.get('name')
+    const email = formData.get('email')
+    const password = formData.get('password')
+    const confirmPassword = formData.get('confirmPassword')
+    let referCode = formData.get('referCode')
     if (password !== confirmPassword) {
-      setError('Passwords do not match.');
+      setError('Passwords do not matching.');
       setLoading(false);
       return;
     }
+    if(referCode==null){
+      referCode=paramsCode;
+    }
 
     try {
-      // const userData = await signup(name, email, password, referCode);
-      // console.log('Signup Successful', userData);
+      const response = await fetch('/api/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({ name, email, password, referCode}),
+      });
+      const data = await response.json();
+      if (response.ok) {
+        console.log(data)
+        // router.push('/user/dashboard');
+      } else {
+        setLoading(false);
+        setError(data.message);
+      }
       
     } catch (error) {
       console.error('Signup Error', error);
@@ -50,11 +64,8 @@ export default function SignUp() {
     }
   };
 
-  // Determine if refer code input should be disabled
-  const isReferCodeDisabled = !!referCode;
-
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
+    <div className="signup-background min-h-screen flex items-center justify-center bg-gray-100 p-4">
       <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
         <h1 className="text-2xl font-bold mb-4 text-center">SignUp</h1>
         {error && <p className="text-red-500 mb-4 text-center">{error}</p>}
@@ -62,32 +73,28 @@ export default function SignUp() {
           <input
             type="text"
             placeholder="Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            name="name"
             className="w-full p-2 mb-4 border rounded"
             required
           />
           <input
             type="email"
             placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            name='email'
             className="w-full p-2 mb-4 border rounded"
             required
           />
           <input
             type="password"
             placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            name='password'
             className="w-full p-2 mb-4 border rounded"
             required
           />
           <input
             type="password"
             placeholder="Confirm Password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
+            name='confirmPassword'
             className="w-full p-2 mb-4 border rounded"
             required
           />
@@ -104,8 +111,7 @@ export default function SignUp() {
             <input
               type="text"
               placeholder="Refer Code"
-              value={referCode}
-              onChange={(e) => setReferCode(e.target.value)}
+              name='referCode'
               className="w-full p-2 mb-4 border rounded"
             />
           )}

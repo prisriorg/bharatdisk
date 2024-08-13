@@ -68,7 +68,7 @@ const Features = () => {
     }
   ];
   return (
-    <section id="features" className="py-20 px-8">
+    <section id="features" className="py-32  border-toper">
       <div className="container mx-auto text-center w-auto">
         <h2 className="text-3xl font-bold mb-16">Why Choose BharatDisk?</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -83,7 +83,7 @@ const Features = () => {
             //  }
             return (<div
               key={index}
-              className={`${ccm} bg-white border p-6 rounded-lg shadow-lg bg-gradient-to-r from-gray-700 via-blue-950 to-gray-700`}
+              className={`${ccm} bg-white border p-6 rounded-lg shadow-lg feature-box`}
             >
               <h3 className="text-xl font-semibold mb-4">{feature.label}</h3>
               <p>{feature.details}</p>

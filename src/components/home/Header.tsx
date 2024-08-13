@@ -14,12 +14,18 @@ const FloatingHeader = () => {
     href: string;
   }
   const menuItems: MenuItem[] = [
-    { label: "About", href: url + "/about" },
+    { label: "Home", href: url + "/" },
+    { label: "Features", href: url + "#features" },
     { label: "Services", href: url + "/services" },
     { label: "Contact", href: url + "/contact" },
   ];
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const handleMenuItemClick = () => {
+    setIsMobileMenuOpen(false);
   };
 
   useEffect(() => {
@@ -32,25 +38,28 @@ const FloatingHeader = () => {
 
   return (
     <header
-      className={`fixed top-4 left-1/2 transform -translate-x-1/2 border border-gray-300 bg-gradient-to-r from-gray-900 via-blue-950 to-gray-900 shadow-lg bg-opacity-75 rounded-lg p-4 w-11/12 md:w-3/4 z-50 transition-all duration-500 ease-in-out`}
+      className={`fixed top-4 left-1/2 bg-opacity-75 main-navbar transform -translate-x-1/2 border border-gray-300 shadow-lg rounded-lg z-50 p-4 w-11/12 md:w-3/4 transition-all duration-500 ease-in-out`}
     >
-      <nav className="flex justify-between items-center text-white">
+      <nav className="flex justify-between items-center">
         <Link href={url}>
           <div className="text-xl font-bold">{name}</div>
         </Link>
-        <ul className="hidden md:flex space-x-4">
+        <ul className="menu-list hidden md:flex space-x-4">
           {menuItems.map((item) => (
             <li key={item.href}>
-              <a href={item.href} className="hover:text-blue-500">
+              <Link
+                href={item.href}
+                className="relative inline-block px-2 py-1 transition transform duration-300 ease-in-out hover:text-white hover:scale-105 hover:rotate-2"
+              >
                 {item.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
         <div className="md:hidden">
           <button
             id="menu-toggle"
-            className=" focus:outline-none"
+            className="focus:outline-none"
             onClick={toggleMobileMenu}
           >
             <svg
@@ -79,7 +88,11 @@ const FloatingHeader = () => {
         <li className="mt-2"></li>
         {menuItems.map((item) => (
           <li key={item.href}>
-            <a href={item.href} className="block hover:text-blue-500">
+            <a
+              href={item.href}
+              className="block hover:text-blue-500"
+              onClick={handleMenuItemClick}
+            >
               {item.label}
             </a>
           </li>

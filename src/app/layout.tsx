@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-// import { Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import config from "./config";
+import AuthProvider from "@/context/authProvider";
 
-// const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "BharatDisk - Store, View, and Earn",
@@ -40,11 +41,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-      
-      // className={inter.className}
-      
-      >{children}</body>
+      <body className={inter.className}>
+        {/* <AuthProvider> */}
+          {children}
+        {/* </AuthProvider> */}
+      </body>
     </html>
   );
 }
