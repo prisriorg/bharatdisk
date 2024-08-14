@@ -1,11 +1,11 @@
-
-import { db } from '../index';
-import { InsertPost, InsertUser, postsTable, usersTable } from '../schema';
+import { eq } from 'drizzle-orm';
+import { db } from '..';
+import { InsertUser, users } from '../schema';
 
 export async function createUser(data: InsertUser) {
-  await db.insert(usersTable).values(data);
-}
+  return await db.insert(users).values(data);
+} 
 
-export async function createPost(data: InsertPost) {
-  await db.insert(postsTable).values(data);
-}
+export async function userExists(email:string) {
+  return (await db.select().from(users).where(eq(users.email,email))).at(0);
+} 

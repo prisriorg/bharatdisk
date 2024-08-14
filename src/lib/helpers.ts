@@ -1,4 +1,3 @@
-const generatedStrings = new Set<string>();
 function generateUniqueRandomString(length: number): string {
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     let result = '';
@@ -13,13 +12,12 @@ function generateUniqueRandomString(length: number): string {
     result += timestamp; // Append the timestamp to ensure uniqueness
   
     // Check if the generated string is unique
-    if (generatedStrings.has(result)) {
-      // If not unique, recursively generate a new one
-      return generateUniqueRandomString(length);
-    }
+    // if (generatedStrings.has(result)) {
+    //   // If not unique, recursively generate a new one
+    //   return generateUniqueRandomString(length);
+    // }
   
-    generatedStrings.add(result);
-    console.log(generatedStrings);
+    // generatedStrings.add(result);
      // Store the generated string
     return result;
   }

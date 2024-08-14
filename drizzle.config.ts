@@ -7,7 +7,7 @@ if (!tursoDatabaseUrl || !tursoAuthToken) {
   throw new Error('Missing Turso configuration');
 }
 export default defineConfig({
-  schema: './src/config/db/schema.ts',
+  schema: './src/db/schema.ts',
   out: './migrations',
   dialect: 'sqlite',
   driver: 'turso',
