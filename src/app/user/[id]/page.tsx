@@ -1,7 +1,6 @@
 import Custom404 from "@/app/not-found";
 import { UserHome } from "@/components/user";
 import navData from "@/components/user/Datas";
-export const runtime = 'edge';
 const createPages = (): { [key: string]: JSX.Element } => {
   const pages: { [key: string]: JSX.Element } = {};
 

@@ -7,6 +7,7 @@
     "build": "set NODE_ENV=production & next build",
     "start": "next start",
     "lint": "next lint",
+    "pages:build": "npx @cloudflare/next-on-pages",
     "driz": "npx drizzle-kit generate",
     "drizc": "npx drizzle-kit create",
     "drizd": "npx drizzle-kit deploy",
@@ -33,16 +34,20 @@
     "request-ip": "^3.3.0"
   },
   "devDependencies": {
+    "@cloudflare/next-on-pages": "^1.13.2",
     "@types/bcrypt": "^5.0.2",
-    "@types/node": "^20",
     "@types/jsonwebtoken": "^9.0.6",
+    "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "drizzle-kit": "^0.23.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
+    "html-loader": "^5.1.0",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vercel": "^37.1.1",
+    "wrangler": "^3.72.2"
   }
 }

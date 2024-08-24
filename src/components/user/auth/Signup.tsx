@@ -63,13 +63,6 @@ const SignUp = () => {
 
   return (
     <>
-      <Head>
-        <title>Sign Up</title>
-        <meta
-          name="description"
-          content="Create an account to join YourAppName. Sign up today to enjoy our services and stay connected."
-        />
-      </Head>
       <div className="bg-gray-100 min-h-screen  flex items-center justify-center">
         <div className="flex flex-col md:flex-row items-center md:space-x-24 p-6">
           <Cpage />
