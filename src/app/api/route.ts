@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/db";
 import { sql } from "drizzle-orm";
+export const runtime = 'edge';
 import generateUniqueRandomString from "@/lib/helpers";
 export async function POST(req:NextRequest): Promise<NextResponse>{
     try {
