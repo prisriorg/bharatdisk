@@ -1,5 +1,5 @@
 import { cookies } from 'next/headers'
- 
+export const runtime = 'edge';
 export async function GET(request: Request) {
   const cookieStore = cookies()
   const token = cookieStore.get('token')

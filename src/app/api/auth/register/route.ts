@@ -2,7 +2,7 @@ import { createUser, userExists } from "@/db/queries/insert";
 import generateUniqueRandomString from "@/lib/helpers";
 import { generateAccessToken, hashPassword } from "@/lib/password";
 import { NextResponse } from "next/server";
-
+export const runtime = 'edge';
 export async function POST(req: Request) {
   try {
     const { name, email, password, referCode } = await req.json();

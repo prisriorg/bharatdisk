@@ -1,7 +1,7 @@
 import { getUserByEmail } from "@/db/queries/select";
 import { comparePassword, generateAccessToken } from "@/lib/password";
 import { NextResponse } from "next/server";
-
+export const runtime = 'edge';
 export async function POST(req: Request) {
   try {
     const { email, password } = await req.json();
