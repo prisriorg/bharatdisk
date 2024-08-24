@@ -24,3 +24,6 @@ export function generateRefreshToken(user: string | object) {
     expiresIn: "7d",
   }); // Long-lived
 }
+export async function verifyToken(token: string) {
+  return await jwt.verify(token, process.env.AUTH_SECRET || "mytoken"); // Long-lived
+}

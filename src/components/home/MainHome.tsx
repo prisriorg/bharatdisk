@@ -1,4 +1,5 @@
 import config from "@/app/config";
+import { getUserWithCount } from "@/db/queries/select";
 import Link from "next/link";
 import React from "react";
 
@@ -15,12 +16,12 @@ export const MainHome = () => {
           {config.name} is India&apos;s premier file storage platform. Securely store, manage, and share your files while earning rewards for views. Securely Store, Share, and Manage Files Seamlessly with Unlimited Space and Easy Uploads.
         </p>
         <div className="mt-16 flex flex-col md:flex-row p-2 justify-center items-center gap-8 md:m-16">
-          <Link
+          <a
             href="/user/login"
             className="button-background  px-6 py-3 rounded-lg shadow-lg hover:border"
           >
             Upload Your Files
-          </Link>
+          </a>
           <Link
             href="#features"
             className="button-background px-6 py-3 rounded-lg shadow-lg  hover:border"

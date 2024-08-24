@@ -1,22 +1,16 @@
 import Custom404 from "@/app/not-found";
 import { UserHome } from "@/components/user";
-import Login from "@/components/user/auth/Login";
-import SignUp from "@/components/user/auth/Signup";
 import navData from "@/components/user/Datas";
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "User Page",
-};
 
 const createPages = (): { [key: string]: JSX.Element } => {
-  const pages: { [key: string]: JSX.Element } = {
-    login: <Login />,
-    signup: <SignUp />
-  };
+  const pages: { [key: string]: JSX.Element } = {};
 
-  navData.forEach((key) => {
-    pages[key.link] = <UserHome page={key.link} />;
+  navData.forEach((key, index) => {
+    if (index < 3) {
+      pages[key.link] = key.page;
+    } else {
+      pages[key.link] = <UserHome page={key.link} />;
+    }
   });
 
   return pages;

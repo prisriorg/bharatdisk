@@ -6,8 +6,14 @@ import Support from "./pages/Support";
 import Referral from "./pages/Referral";
 import Withdrawal from "./pages/Withdrawal";
 import Logout from "./pages/Logout";
+import Login from "@/components/user/auth/Login";
+import SignUp from "@/components/user/auth/Signup";
+import ForgetPassword from "./auth/ForgetPassword";
 
 const navData = [
+  { name: "Login", link: "login", page: <Login /> },
+  { name: "Register", link: "signup", page: <SignUp /> },
+  { name: "Forget Password", link: "forget-password", page: <ForgetPassword /> },
   { name: "Dashboard", link: "dashboard", page: <Dashboard /> },
   { name: "Upload File", link: "upload-file", page: <UploadFile /> },
   { name: "File Manager", link: "file-manager", page: <FileManager /> },

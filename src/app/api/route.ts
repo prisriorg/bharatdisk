@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import { InsertUser, usersTable} from '@/db/schema';
 import { db } from "@/db";
 import { sql } from "drizzle-orm";
 import generateUniqueRandomString from "@/lib/helpers";
